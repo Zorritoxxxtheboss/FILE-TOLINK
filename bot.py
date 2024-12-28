@@ -1,13 +1,13 @@
 import os
 import logging
 from flask import Flask, send_from_directory
-from telegram import Update, Bot
+from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 
 # Configuración del bot
-TOKEN = '7798610149:AAHhcv-uAwFl5koEBslmHSk_XSQ2nw711VE'
+TOKEN = os.getenv('TELEGRAM_TOKEN', '7798610149:AAHhcv-uAwFl5koEBslmHSk_XSQ2nw711VE')
 DOWNLOAD_FOLDER = 'download'
-BASE_URL = 'http://localhost:5000/download/'  # Cambia esto si usas un servidor público
+BASE_URL = 'https://file-tolink-production.up.railway.app/download/'  # URL pública de tu app en Railway
 
 # Configuración del servidor Flask
 app = Flask(__name__)
